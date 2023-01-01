@@ -16,7 +16,7 @@ import com.tnite.mock.service.MockService;
 public class MockController {
 
     @Autowired
-    MockService mockService;
+    private MockService mockService;
 
     @GetMapping(path = "/resource", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getServe(@RequestParam String data) throws Exception {
@@ -25,7 +25,7 @@ public class MockController {
     }
     
     @GetMapping(path = "/status", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> getStatus(@RequestParam String code) throws Exception {
+    public ResponseEntity<String> getStatus(@RequestParam int code) throws Exception {
         Map<String, HttpStatus> statusMap = mockService.getHttpStatus(code);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
         return new ResponseEntity<>(status.getKey(), status.getValue());

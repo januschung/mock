@@ -46,7 +46,7 @@ public class TestMockController {
     
     @Test
     public void testThatWhenStatusRequestWithCode200ThenResponseReturnTheSame() throws Exception {
-    	when(mockService.getHttpStatus("200")).thenReturn(Collections.singletonMap("OK", HttpStatus.OK));
+    	when(mockService.getHttpStatus(200)).thenReturn(Collections.singletonMap("OK", HttpStatus.OK));
     	
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/status?code=200").accept(MediaType.APPLICATION_JSON);
 		MvcResult result = mockMvc.perform(requestBuilder).andReturn();
