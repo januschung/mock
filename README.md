@@ -106,7 +106,7 @@ _Sample 1_
 will return response with 3000 milliseconds delay
 
 ```console
-Reponse with delay of 3000 milliseconds
+Response with delay of 3000 milliseconds
 ```
 </details>
 
