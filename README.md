@@ -83,26 +83,14 @@ OK
 
 _Sample 2_
 
-**curl "http://localhost:9090/status?code=403"**
+**curl "http://localhost:9090/status?code=400"**
 
 
-will return status code 403 and the following response
+will return status code 400 and the following response
 
 ```console
-FORBIDDEN
+400 BAD_REQUEST
 ```
-
-Currently the following status codes are supported:
-
-| Code  | Status |
-| ------------- | ------------- |
-| 200  | OK  |
-| 403  | FORBIDDEN  |
-| 404  | NOT FOUND  |
-| 500  | INTERNAL SERVER ERROR  |
-| 503  | SERVICE UNAVAILABLE  |
-| 504  | GATEWAY TIMEOUT  |
-
 
 </details>
 
@@ -118,7 +106,7 @@ _Sample 1_
 will return response with 3000 milliseconds delay
 
 ```console
-Reponse with delay of 3000 milliseconds
+Response with delay of 3000 milliseconds
 ```
 </details>
 

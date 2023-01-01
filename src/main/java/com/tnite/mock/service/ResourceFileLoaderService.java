@@ -13,10 +13,10 @@ import io.micrometer.core.instrument.util.IOUtils;
 public class ResourceFileLoaderService {
 
     @Autowired
-    ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     public String getTemplateFromFile(String fileName) {
-        InputStream input = getClass().getClassLoader().getResourceAsStream(fileName);
+        InputStream input = resourceLoader.getClass().getClassLoader().getResourceAsStream(fileName);
         return IOUtils.toString(input);
     }
 

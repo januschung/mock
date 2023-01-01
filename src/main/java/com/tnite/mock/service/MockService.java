@@ -12,58 +12,36 @@ import org.springframework.stereotype.Service;
 @Service
 public class MockService {
 	
-	@Autowired
-	ResourceFileLoaderService resourceFileLoader;
-
-    private static Logger logger = LoggerFactory.getLogger(MockService.class);
+    @Autowired
+    private ResourceFileLoaderService resourceFileLoader;
 
     private static final String RESOURCE_FOLDER = "data";
     private static final String EMPTY_DATA_FILENAME = "empty";
+    
+    private static Logger logger = LoggerFactory.getLogger(MockService.class);
 
-    public String getResponse(String foo) {
-        logger.info("Received foo:{}", foo);
-        String contents = resourceFileLoader.getTemplateFromFile(RESOURCE_FOLDER + "/" + foo);
-        logger.info("Received content from file {}: {}", foo, contents);
+    public String getResponse(String data) {
+        logger.info("Received data param:{}", data);
+        String contents = resourceFileLoader.getTemplateFromFile(RESOURCE_FOLDER + "/" + data);
+        logger.info("Received content from file {}: {}", data, contents);
         if (contents.isEmpty()) {
-            logger.info("Could not find contents for {}. Returning empty data", foo);
+            logger.info("Could not find contents for {}. Returning empty data", data);
             return resourceFileLoader.getTemplateFromFile(RESOURCE_FOLDER + "/" + EMPTY_DATA_FILENAME);
         } else {
-        	logger.info("Content is {}, {}", contents, foo);
+        	logger.info("Content is {}, {}", contents, data);
             return contents;
         }
     }
+	
+    public Map<String, HttpStatus> getHttpStatus(int code) {
+        Map<String, HttpStatus> status = new HashMap<String, HttpStatus>();
+        status.put(HttpStatus.valueOf(code).toString(), HttpStatus.valueOf(code));
+        return status;
+    }
 
-	public Map<String, HttpStatus> getHttpStatus(String code) {
-		Map<String, HttpStatus> status = new HashMap<String, HttpStatus>();
-		switch (code) {
-			case "200":
-				status.put("OK", HttpStatus.OK);
-				break;
-			case "403":
-				status.put("FORBIDDEN", HttpStatus.FORBIDDEN);
-				break;
-			case "404":
-				status.put("NOT FOUND", HttpStatus.NOT_FOUND);
-				break;
-			case "500":
-				status.put("INTERNAL SERVER ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
-				break;
-			case "503":
-				status.put("SERVICE UNAVAILABLE", HttpStatus.SERVICE_UNAVAILABLE);
-				break;
-			case "504":
-				status.put("GATEWAY TIMEOUT", HttpStatus.GATEWAY_TIMEOUT);
-				break;
-			default:
-				status.put("OK", HttpStatus.OK);
-				break;
-		}
-		return status;
-	}
-
-	public String getDelay(String time) throws InterruptedException {
-		Long delay = Long.valueOf(time);
-		Thread.sleep(delay);
-		return "Reponse with delay of " + time + " milliseconds";
-	}
+    public String getDelay(String time) throws InterruptedException {
+        Long delay = Long.valueOf(time);
+        Thread.sleep(delay);
+        return "Response with delay of " + time + " milliseconds";
+    }
 }

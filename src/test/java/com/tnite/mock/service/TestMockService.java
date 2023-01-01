@@ -34,58 +34,50 @@ public class TestMockService {
     
     @Test
     public void TestGetHttpStatusWhenRequest200Return200() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("200");
+        Map<String, HttpStatus> statusMap = mockService.getHttpStatus(200);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("OK", status.getKey());
+        assertEquals("200 OK", status.getKey());
         assertEquals(HttpStatus.OK, status.getValue());
     }
     
     @Test
     public void TestGetHttpStatusWhenRequest403Return403() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("403");
+        Map<String, HttpStatus> statusMap = mockService.getHttpStatus(403);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("FORBIDDEN", status.getKey());
+        assertEquals("403 FORBIDDEN", status.getKey());
         assertEquals(HttpStatus.FORBIDDEN, status.getValue());
     }
     
     @Test
     public void TestGetHttpStatusWhenRequest404Return404() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("404");
+        Map<String, HttpStatus> statusMap = mockService.getHttpStatus(404);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("NOT FOUND", status.getKey());
+        assertEquals("404 NOT_FOUND", status.getKey());
         assertEquals(HttpStatus.NOT_FOUND, status.getValue());
     }
     
     @Test
     public void TestGetHttpStatusWhenRequest500Return500() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("500");
+        Map<String, HttpStatus> statusMap = mockService.getHttpStatus(500);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("INTERNAL SERVER ERROR", status.getKey());
+        assertEquals("500 INTERNAL_SERVER_ERROR", status.getKey());
         assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, status.getValue());
     }
     
     @Test
     public void TestGetHttpStatusWhenRequest503Return503() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("503");
+        Map<String, HttpStatus> statusMap = mockService.getHttpStatus(503);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("SERVICE UNAVAILABLE", status.getKey());
+        assertEquals("503 SERVICE_UNAVAILABLE", status.getKey());
         assertEquals(HttpStatus.SERVICE_UNAVAILABLE, status.getValue());
     }
     
     @Test
     public void TestGetHttpStatusWhenRequest504Return504() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("504");
+        Map<String, HttpStatus> statusMap = mockService.getHttpStatus(504);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("GATEWAY TIMEOUT", status.getKey());
+        assertEquals("504 GATEWAY_TIMEOUT", status.getKey());
         assertEquals(HttpStatus.GATEWAY_TIMEOUT, status.getValue());
-    }
-    
-    @Test
-    public void TestGetHttpStatusWhenRequestUnsupportedCodeReturnDefault200() {
-        Map<String, HttpStatus> statusMap = mockService.getHttpStatus("999");
-        Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
-        assertEquals("OK", status.getKey());
-        assertEquals(HttpStatus.OK, status.getValue());
     }
 
     @Test
