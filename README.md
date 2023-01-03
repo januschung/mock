@@ -78,7 +78,7 @@ _Sample 1_
 will return status code 200 and the following response
 
 ```console
-OK
+200 OK
 ```
 
 _Sample 2_

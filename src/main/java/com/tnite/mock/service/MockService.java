@@ -28,7 +28,7 @@ public class MockService {
             logger.info("Could not find contents for {}. Returning empty data", data);
             return resourceFileLoader.getTemplateFromFile(RESOURCE_FOLDER + "/" + EMPTY_DATA_FILENAME);
         } else {
-        	logger.info("Content is {}, {}", contents, data);
+            logger.info("Content is {}, {}", contents, data);
             return contents;
         }
     }
