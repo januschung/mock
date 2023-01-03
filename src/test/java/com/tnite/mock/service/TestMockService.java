@@ -18,7 +18,6 @@ import org.springframework.http.HttpStatus;
 @ExtendWith(MockitoExtension.class)
 public class TestMockService {
 
-
     @Mock
     ResourceFileLoaderService resourceFileLoader;
     

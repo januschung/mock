@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<name>tnite-mock</name>
-	<url>http://maven.apache.org</url>
+	<url>https://github.com/januschung/mock</url>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
