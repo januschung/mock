@@ -35,7 +35,7 @@ public class TestMockService {
         assert(response.contains("whatever"));
     }
     
-    private static Stream<Arguments> parmamsForTestGetHttpStatus() {
+    private static Stream<Arguments> paramsForTestGetHttpStatus() {
         return Stream.of(
           Arguments.of(200, "200 OK", HttpStatus.OK),
           Arguments.of(403, "403 FORBIDDEN", HttpStatus.FORBIDDEN),
@@ -47,7 +47,7 @@ public class TestMockService {
     }
     
     @ParameterizedTest
-    @MethodSource("parmamsForTestGetHttpStatus")
+    @MethodSource("paramsForTestGetHttpStatus")
     public void TestGetHttpStatus(int statusCode, String response, HttpStatus httpStatus) {
         Map<String, HttpStatus> statusMap = mockService.getHttpStatus(statusCode);
         Map.Entry<String, HttpStatus> status = statusMap.entrySet().iterator().next();
