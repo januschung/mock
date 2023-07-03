@@ -110,6 +110,12 @@ Response with delay of 3000 milliseconds
 ```
 </details>
 
+#### Swagger API Documentation
+
+Swagger is setup and available via the following endpoint for quick reference and testing of the mock service:
+
+`http://localhost:9090/swagger-ui/index.html`
+
 #### Build and run
 ```console
 mvn clean install
