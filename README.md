@@ -1,6 +1,6 @@
 #### Introduction
 
-This is a simple REST mock server written with Java Spring Boot 3.0.1 and Java 17.
+This is a simple REST mock server written with Java Spring Boot 3.2.3 and Java 17.
 
 It provides sample endpoints to render output either based on static resource file or simple logic as defined in the service classes.
 
