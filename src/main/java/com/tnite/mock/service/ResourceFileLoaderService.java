@@ -19,5 +19,4 @@ public class ResourceFileLoaderService {
         InputStream input = resourceLoader.getClass().getClassLoader().getResourceAsStream(fileName);
         return IOUtils.toString(input);
     }
-
 }
